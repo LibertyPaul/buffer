@@ -43,11 +43,11 @@ void Buffer::write(istream &i, uint32_t length){
 
 
 uint32_t Buffer::getWriteSpace() const{
-	return bufferSize - writePos;
+	return size - writePos;
 }
 
 uint32_t Buffer::getReadSpace() const{
-	return bufferSize - readPos;
+	return size - readPos;
 }
 
 void Buffer::read(void *dst, uint32_t length){

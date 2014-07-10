@@ -1,7 +1,6 @@
 #ifndef BUFFER_HPP_INCLUDED
 #define BUFFER_HPP_INCLUDED
 
-const uint32_t bufferSize = 1024;
 
 class Buffer{
 	uint64_t size;

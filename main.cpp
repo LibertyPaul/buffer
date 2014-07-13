@@ -16,4 +16,7 @@ int main(){
 	random_device rd;
 	for(uint32_t i = 0; i < size / sizeof(uint32_t); ++i)
 		buffer.write<uint32_t>(rd());
+
+	for(uint32_t i = 0; i < size / sizeof(uint32_t); ++i)
+		cout << buffer.read<uint32_t>() << " ";
 }

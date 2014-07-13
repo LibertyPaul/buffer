@@ -24,7 +24,7 @@ void Buffer::dropPointers(){
 }
 
 
-void Buffer::write(const void *data, uint32_t length){
+void Buffer::write(const void *data, uint64_t length){
 	if(getWriteSpace() < length)
 		throw logic_error("Buffer overflow");
 
@@ -32,7 +32,7 @@ void Buffer::write(const void *data, uint32_t length){
 	writePos += length;
 }
 
-void Buffer::write(istream &i, uint32_t length){
+void Buffer::write(istream &i, uint64_t length){
 	if(getWriteSpace() < length)
 		throw logic_error("Buffer overflow");
 
@@ -42,15 +42,15 @@ void Buffer::write(istream &i, uint32_t length){
 }
 
 
-uint32_t Buffer::getWriteSpace() const{
+uint64_t Buffer::getWriteSpace() const{
 	return size - writePos;
 }
 
-uint32_t Buffer::getReadSpace() const{
+uint64_t Buffer::getReadSpace() const{
 	return size - readPos;
 }
 
-void Buffer::read(void *dst, uint32_t length){
+void Buffer::read(void *dst, uint64_t length){
 	if(getReadSpace() < length)
 		throw logic_error("Buffer reading overflow");
 
@@ -59,7 +59,7 @@ void Buffer::read(void *dst, uint32_t length){
 }
 
 
-void Buffer::read(ostream &o, uint32_t length){
+void Buffer::read(ostream &o, uint64_t length){
 	if(getReadSpace() < length)
 		throw logic_error("Buffer reading overflow");
 
